@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aaqibreshie.vercel.app/sitemap.xml
+Sitemap: https://aaqibportfolioapp.netlify.app/sitemap.xml

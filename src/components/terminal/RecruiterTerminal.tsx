@@ -165,10 +165,11 @@ export default function RecruiterTerminal() {
 
             <div className="flex flex-col sm:flex-row sm:items-center justify-between p-2 rounded bg-zinc-900/80 border border-white/5">
               <div>
-                <span className="text-white font-bold">6. 3D Developer Cockpit</span> — Next.js 15, Framer Motion & Antigravity
+                <span className="text-white font-bold">6. 3D Developer Cockpit</span> — Next.js 16, Framer Motion &amp; Antigravity
+                <span className="ml-2 text-[10px] text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/40">NETLIFY LIVE</span>
               </div>
-              <a href="https://github.com/Aaqibreshie/Portfolio" target="_blank" rel="noreferrer" className="text-emerald-400 underline hover:text-emerald-200 text-[11px] mt-1 sm:mt-0">
-                github.com/Aaqibreshie/Portfolio ↗
+              <a href="https://aaqibportfolioapp.netlify.app/" target="_blank" rel="noreferrer" className="text-emerald-400 underline hover:text-emerald-200 text-[11px] mt-1 sm:mt-0">
+                aaqibportfolioapp.netlify.app ↗
               </a>
             </div>
           </div>

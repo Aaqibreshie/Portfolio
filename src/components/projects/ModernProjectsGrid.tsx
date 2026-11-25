@@ -206,24 +206,25 @@ app.get('/:shortId', async (req, res) => {
     id: "portfolio-cockpit",
     number: "06",
     title: "Interactive 3D Engineering Portfolio & Telemetry Cockpit",
-    badge: "Next.js 15 & Antigravity",
+    badge: "Next.js 16 & Antigravity",
+    deployPlatform: "Netlify",
     filterCategory: "agentic",
-    categoryLabel: "3D Motion & Next.js 15",
+    categoryLabel: "3D Motion & Next.js 16",
     tagline: "Ultra-modern, motion-driven developer portfolio engineered with Three.js 3D tilt, Lenis smooth scrolling, and live telemetry cockpit.",
-    overview: "Built as a production-grade showcase engineered with Next.js 15, TypeScript, Framer Motion, and Google Antigravity agentic workflows. Features interactive 3D perspective physics, real-time IST clock, and clean Glacier Cyan aesthetic.",
+    overview: "Built as a production-grade showcase engineered with Next.js 16, TypeScript, Framer Motion, and Google Antigravity agentic workflows. Features interactive 3D perspective physics, real-time IST clock, and clean Obsidian Emerald & Electric Lime aesthetic.",
     architecture: [
-      "Next.js 15 App Router architecture with Webpack build optimization pipeline",
+      "Next.js 16 App Router architecture with Webpack build optimization pipeline",
       "Interactive 3D holographic perspective cards with real-time cursor tracking & specular sheen",
       "Lenis smooth scroll integration with natural vertical scroll velocity",
       "Dynamic command center modal (⌘K) with keyboard shortcut event listeners",
     ],
     metrics: [
-      { label: "Render Target", value: "60+ FPS Fluid" },
-      { label: "Color System", value: "Glacier Slate" },
+      { label: "Deployment", value: "Netlify Live" },
+      { label: "Color System", value: "Obsidian Emerald" },
       { label: "Workflow", value: "Google Antigravity" },
       { label: "Scroll Engine", value: "Lenis Virtual" },
     ],
-    tech: ["Next.js 15", "TypeScript", "Tailwind CSS v4", "Framer Motion", "Three.js", "Google Antigravity"],
+    tech: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Framer Motion", "Three.js", "Google Antigravity"],
     codeSnippet: `// 3D Perspective Card Tilt Physics Hook
 export function usePerspectiveTilt(ref, intensity = 12) {
   const [rot, setRot] = useState({ x: 0, y: 0 });
@@ -235,7 +236,7 @@ export function usePerspectiveTilt(ref, intensity = 12) {
   };
   return { rot, onMove };
 }`,
-    liveUrl: "https://github.com/Aaqibreshie/Portfolio",
+    liveUrl: "https://aaqibportfolioapp.netlify.app/",
     githubUrl: "https://github.com/Aaqibreshie/Portfolio",
     featured: true,
   },

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const siteUrl = "https://aaqibreshie.vercel.app";
+const siteUrl = "https://aaqibportfolioapp.netlify.app";
 
 export const viewport: Viewport = {
   themeColor: "#09090b",
