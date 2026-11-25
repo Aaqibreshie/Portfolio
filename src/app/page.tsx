@@ -1,69 +1,138 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useEffect } from "react";
+import { FileDown } from "lucide-react";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import GlacierBackground from "@/components/background/GlacierBackground";
+import Navbar from "@/components/nav/Navbar";
+import Hero from "@/components/hero/Hero";
+import HeroScrollMorph from "@/components/motion/HeroScrollMorph";
+import ScrollTextScrubber from "@/components/motion/ScrollTextScrubber";
+import BentoGrid from "@/components/bento/BentoGrid";
+import SkillsMatrix from "@/components/skills/SkillsMatrix";
+import ModernProjectsGrid from "@/components/projects/ModernProjectsGrid";
+import ScrollCircuitLaser from "@/components/motion/ScrollCircuitLaser";
+import RecruiterTerminal from "@/components/terminal/RecruiterTerminal";
+import ContactSection from "@/components/contact/ContactSection";
+import CommandPalette from "@/components/command/CommandPalette";
 
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [isCommandOpen, setIsCommandOpen] = useState(false);
+
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setIsCommandOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", handleGlobalKeyDown);
+    return () => window.removeEventListener("keydown", handleGlobalKeyDown);
+  }, []);
+
+  const handleSelectCategory = (category: string) => {
+    setSelectedCategory(category);
+    const elem = document.getElementById("projects");
+    if (elem) {
+      elem.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <SmoothScrollProvider>
+      <main className="relative min-h-screen bg-[#09090b] text-zinc-100 overflow-x-hidden font-sans selection:bg-emerald-500/30 selection:text-white">
+        {/* Modern, Clean & Non-Distracting Glacier Background */}
+        <GlacierBackground />
+
+        {/* Top Pinned Glass Navbar */}
+        <Navbar onOpenCommand={() => setIsCommandOpen(true)} />
+
+        {/* Recruiter Fast-Path Command Palette (Cmd + K) */}
+        <CommandPalette
+          isOpen={isCommandOpen}
+          onClose={() => setIsCommandOpen(false)}
+          onSelectCategory={handleSelectCategory}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Natural Vertical Flow with Smooth Scroll Animations */}
+        <div className="relative z-10">
+          {/* 1. Kinetic Hero Header with 3D Hologram Card */}
+          <Hero onOpenCommand={() => setIsCommandOpen(true)} />
+
+          {/* 2. In-View 3D Perspective Architecture Rig */}
+          <HeroScrollMorph />
+
+          {/* 3. Word-by-Word Kinetic Text Reveal */}
+          <ScrollTextScrubber />
+
+          {/* 4. Telemetry & Mentorship Impact Bento Cockpit */}
+          <BentoGrid />
+
+          {/* 5. Complete Technical Skills & Competencies Matrix */}
+          <SkillsMatrix />
+
+          {/* 6. Filterable Projects Showcase (All 6 Real Projects) */}
+          <ModernProjectsGrid
+            selectedCategory={selectedCategory}
+            onSelectCategory={setSelectedCategory}
+          />
+
+          {/* 7. Drawing SVG Laser Circuit Beam (Experience & Education) */}
+          <ScrollCircuitLaser />
+
+          {/* 8. Interactive Developer Terminal (/sh Recruiter CLI) */}
+          <RecruiterTerminal />
+
+          {/* 9. Contact Communications Hub */}
+          <ContactSection />
+
+          {/* Minimalist Dark Footer */}
+          <footer className="py-16 border-t border-white/10 text-xs text-zinc-400 font-mono relative z-10 bg-[#09090b]/80 backdrop-blur-md">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-zinc-300">All Systems Operational // Srinagar, IN (IST)</span>
+              </div>
+              <div className="flex items-center gap-5 text-xs font-mono">
+                <a
+                  href="/Aaqib_Nabi_Reshie_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-400 transition-colors flex items-center gap-1.5 text-zinc-300"
+                >
+                  <FileDown className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Resume PDF</span>
+                </a>
+                <a
+                  href="https://github.com/Aaqibreshie"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-400 transition-colors text-zinc-300"
+                >
+                  GitHub
+                </a>
+                <a
+                  href="https://linkedin.com/in/reshieaaqib"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-400 transition-colors text-zinc-300"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+            <div className="text-center pt-6 border-t border-white/5 max-w-7xl mx-auto px-4">
+              <p className="text-zinc-300">
+                © {new Date().getFullYear()} Aaqib Nabi Reshie. Engineered with Next.js 15, Framer Motion & Google Antigravity.
+              </p>
+              <p className="mt-1 text-[11px] text-zinc-500">
+                MERN Stack Developer • Agentic AI Engineer • Visvesvaraya Technological University (VTU)
+              </p>
+            </div>
+          </footer>
         </div>
       </main>
-    </div>
+    </SmoothScrollProvider>
   );
 }

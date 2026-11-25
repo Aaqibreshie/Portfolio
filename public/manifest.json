@@ -1,0 +1,21 @@
+{
+  "name": "Aaqib Nabi Reshie — Portfolio",
+  "short_name": "Aaqib Portfolio",
+  "description": "Front-End & Full-Stack MERN Developer Portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
